@@ -1,0 +1,49 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    fxHide.gt-xs
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="false"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="albums" (click)="drawer.toggle()">Albums</a>
+      <a mat-list-item routerLink="artists" (click)="drawer.toggle()"
+        >Artists</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        fxHide.gt-xs
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <a class="link-logo" [routerLink]="['/']"><span>Music Collection</span></a>
+      <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+        <a
+          mat-button
+          [routerLink]="['/albums']"
+          routerLinkActive="router-link-active"
+          >Albums</a
+        >
+        <a
+          mat-button
+          [routerLink]="['/artists']"
+          routerLinkActive="router-link-active"
+          >Artists</a
+        >
+      </div>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

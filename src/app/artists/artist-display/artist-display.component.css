@@ -1,0 +1,33 @@
+.content {
+  width: 80%;
+  margin: 40px auto;
+}
+
+.artist h2 {
+  font-size: 50px;
+  text-align: center;
+}
+
+.artist img {
+  width: 80vw;
+  max-height: 40vh;
+  object-fit: cover;
+}
+
+@media (min-width: 800px) {
+  .artist img {
+    width: 50vw;
+    max-height: 50vh;
+  }
+}
+
+@media (min-width: 1200px) {
+  .artist img {
+    width: 40vw;
+    max-height: 40vh;
+  }
+}
+
+button {
+  margin-right: 10px;
+}

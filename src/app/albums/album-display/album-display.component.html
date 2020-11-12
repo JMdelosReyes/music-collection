@@ -1,0 +1,56 @@
+<div class="content">
+  <div *ngIf="album" class="album" fxLayout="row wrap" fxLayoutGap="20px grid">
+    <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex="50%">
+      <img
+        [src]="album.coverUrl"
+        [alt]="album.title"
+        [ngClass.gt-sm]="{ 'limit-img': true }"
+      />
+      <div class="button-row">
+        <button mat-raised-button color="primary" (click)="onEdit()">
+          Edit Album
+        </button>
+        <button mat-raised-button color="warn" (click)="onShowDialog()">
+          Delete Album
+        </button>
+      </div>
+    </div>
+    <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex="50%">
+      <h1>{{ album.title }}</h1>
+      <h2>
+        <a
+          class="artist-link"
+          [routerLink]="['/artist', artist._id]"
+          *ngIf="artist"
+          >{{ artist.name }}</a
+        >
+      </h2>
+      <h2 *ngIf="!artist">Unknown</h2>
+      <p>
+        {{ album.genre ? album.genre : "" }}
+        {{ album.genre && album.year ? " - " : "" }}
+        {{ album.year ? album.year : "" }}
+      </p>
+      <div>
+        <mat-list>
+          <div *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8]">
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              <div
+                class="track"
+                fxLayout="row"
+                fxLayoutGap="20px"
+                fxLayoutAlign="none center"
+              >
+                <p fxFlex="10" class="track-number">{{ i }}</p>
+                <p fxFlex="70" class="track-name">Track placeholder</p>
+                <p fxFlex="20" class="track-duration">3:56</p>
+              </div>
+            </mat-list-item>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </div>
+    </div>
+  </div>
+</div>

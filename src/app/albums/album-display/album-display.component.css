@@ -1,0 +1,70 @@
+.content {
+  width: 80%;
+  margin: 40px auto;
+}
+
+.album img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+button {
+  margin-right: 10px;
+}
+
+.limit-img {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h2, h1 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+.artist-link {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  color: rgb(178, 46, 91);
+}
+
+.track {
+  width: 100%;
+}
+
+.track p {
+  margin: 0;
+}
+
+.track-number {
+  font-size: 12px;
+  color: rgb(200, 200, 200);
+}
+
+.track-duration {
+  color: rgb(200, 200, 200);
+  text-align: end;
+}
+
+/* .track-name, .track-number, .track-duration {
+  margin: 0;
+}
+
+.track-name {
+  margin-left: 5%;
+}
+
+.track-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */
+
+
+
+

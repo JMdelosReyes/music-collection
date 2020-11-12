@@ -1,0 +1,27 @@
+.content {
+  width: 80%;
+  margin: 40px auto;
+}
+
+.form-container {
+  padding: 20px;
+  max-width: 400px;
+  margin: 0px auto;
+  margin-top: 50px;
+  background-color: rgb(65, 65, 65);
+  border-radius: 10px;
+}
+
+.form-field {
+  display: block;
+}
+
+.img-cover {
+  width: 60%;
+  display: block;
+  margin: 0px auto 10px auto;
+}
+
+button {
+  margin-right: 10px;
+}

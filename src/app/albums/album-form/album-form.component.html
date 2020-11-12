@@ -1,0 +1,52 @@
+<div class="content">
+  <h1>{{ editMode ? "Edit Album" : "Add Album" }}</h1>
+  <div class="form-container mat-elevation-z8">
+    <form *ngIf="albumForm" [formGroup]="albumForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="form-field">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" required />
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Artist</mat-label>
+        <mat-select formControlName="artistId">
+          <mat-option value="">Select an artist</mat-option>
+          <mat-option *ngFor="let artist of artists" [value]="artist._id">{{
+            artist.name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Genre</mat-label>
+        <input matInput formControlName="genre" />
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Year</mat-label>
+        <input
+          matInput
+          formControlName="year"
+          type="number"
+          min="1909"
+          max="2030"
+        />
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Cover URL</mat-label>
+        <input matInput formControlName="coverUrl" required #coverUrl />
+      </mat-form-field>
+      <div>
+        <img [src]="coverUrl.value" class="img-cover" />
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!albumForm.valid"
+      >
+        Save
+      </button>
+      <button mat-raised-button color="accent" (click)="onCancel()">
+        Cancel
+      </button>
+    </form>
+  </div>
+</div>

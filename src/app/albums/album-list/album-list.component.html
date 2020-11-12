@@ -1,0 +1,35 @@
+<div class="content">
+  <h1>Albums</h1>
+  <p class="albums-found">{{ albumsFiltered.length }} albums found</p>
+  <div class="control-panel">
+    <button mat-raised-button color="primary" (click)="onCreateAlbum()">
+      Add Album
+    </button>
+    <mat-form-field [ngClass.lt-md]="{ 'add-space': true }">
+      <mat-label>Filter albums</mat-label>
+      <input matInput (input)="onFilter($event.target.value)" />
+    </mat-form-field>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="albums" fxLayout="row wrap" fxLayoutGap="35px grid">
+    <div
+      fxFlex.xs="100%"
+      fxFlex.sm="50%"
+      fxFlex="20%"
+      fxFlex.md="33.3%"
+      fxFlex.lg="25%"
+      *ngFor="let album of albumsFiltered"
+    >
+      <mat-card class="mat-elevation-z0">
+        <img
+          mat-card-image
+          [src]="album.coverUrl"
+          [alt]="album.coverUrl"
+          (click)="onClick(album._id)"
+        />
+        <h3 (click)="onClick(album._id)">{{ album.title }}</h3>
+        <p>{{ getArtistById(album.artistId) }}</p>
+      </mat-card>
+    </div>
+  </div>
+</div>

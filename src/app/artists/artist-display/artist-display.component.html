@@ -1,0 +1,16 @@
+<div class="content">
+  <div class="artist" fxLayout="column" fxLayoutAlign="space-around center">
+    <h2 fxFlex="50%" *ngIf="artist">{{ artist.name }}</h2>
+    <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex="50%" *ngIf="artist">
+      <img [src]="artist.photoUrl" [alt]="artist.name" />
+      <div class="button-row">
+        <button mat-raised-button color="primary" (click)="onEdit()">
+          Edit Artist
+        </button>
+        <button mat-raised-button color="warn" (click)="onShowDialog()">
+          Delete Artist
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

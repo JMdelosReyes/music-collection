@@ -1,0 +1,59 @@
+<div class="content">
+  <h1>{{ editMode ? "Edit Artist" : "Add Artist" }}</h1>
+  <div class="form-container mat-elevation-z8">
+    <form *ngIf="artistForm" [formGroup]="artistForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="form-field">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required />
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label>Birhdate</mat-label>
+        <input
+          matInput
+          [matDatepicker]="birthdate"
+          formControlName="birthdate"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="birthdate"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #birthdate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label>Deathdate</mat-label>
+        <input
+          matInput
+          [matDatepicker]="deathDate"
+          formControlName="deathDate"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="deathDate"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #deathDate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label>Photo URL</mat-label>
+        <input matInput formControlName="photoUrl" required #photoUrl />
+      </mat-form-field>
+
+      <div>
+        <img [src]="photoUrl.value" class="img-cover" />
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!artistForm.valid"
+      >
+        Save
+      </button>
+      <button mat-raised-button color="accent" (click)="onCancel()">
+        Cancel
+      </button>
+    </form>
+  </div>
+</div>

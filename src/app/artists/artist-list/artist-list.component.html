@@ -1,0 +1,25 @@
+<div class="content">
+  <h1>Artists</h1>
+  <p class="artists-found">{{ artists.length }} artists found</p>
+  <div class="control-panel">
+    <button mat-raised-button color="primary" (click)="onCreateArtist()">
+      Add Artist
+    </button>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="artists" fxLayout="row wrap" fxLayoutGap="20px grid">
+    <div
+      class="artist"
+      fxFlex.xs="100%"
+      fxFlex.sm="50%"
+      fxFlex="20%"
+      fxFlex.md="33%"
+      fxFlex.lg="25%"
+      *ngFor="let artist of artists"
+      (click)="onClick(artist._id)"
+    >
+      <img [src]="artist.photoUrl" [alt]="artist.name" />
+      <h3>{{ artist.name }}</h3>
+    </div>
+  </div>
+</div>
